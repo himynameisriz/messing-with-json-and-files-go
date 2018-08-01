@@ -20,7 +20,7 @@ var logFile *os.File
 
 func init() {
 	logPath, _ := filepath.Abs("logs/logs.txt")
-	logFile, _ := os.OpenFile(logPath, os.O_APPEND, 0666)
+	logFile, _ := os.OpenFile(logPath, os.O_CREATE|os.O_APPEND|os.O_RDWR, 0666)
 
 	log.SetFormatter(&log.JSONFormatter{})
 	log.SetOutput(logFile)
